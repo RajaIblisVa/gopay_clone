@@ -38,7 +38,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     });
 
     return Scaffold(
-      //appBar: AppBar(title: const Text('Login')),
+      backgroundColor: const Color(0xFF121212), // Dark gray background color
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -49,17 +49,26 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 50),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                // Welcome Text
+                const Text(
+                  'Selamat datang di GoPay!',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  child: const Image(
-                    image: AssetImage('assets/images/logo-nginepin.png'),
-                    width: 100,
-                    height: 100,
-                  ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
+                const Text(
+                  'Masuk atau daftar hanya dalam beberapa langkah mudah.',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 50),
                 CustomTextFormField(
                   controller: _emailController,
                   labelText: 'Email',
@@ -75,33 +84,60 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ValidationHelper.validateNotEmpty(value, 'Password'),
                 ),
                 const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: authState.isLoading
-                      ? null
-                      : () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            ref.read(authProvider.notifier).login(
-                                  _emailController.text,
-                                  _passwordController.text,
-                                );
-                          }
-                        },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                // Custom "Lanjut" button
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 16),
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: authState.isLoading
+                        ? null
+                        : () {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              ref.read(authProvider.notifier).login(
+                                    _emailController.text,
+                                    _passwordController.text,
+                                  );
+                            }
+                          },
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      backgroundColor: const Color(0xFF333333), // Light gray for the button background
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: authState.isLoading
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Text(
+                            'Lanjut',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
                   ),
-                  child: authState.isLoading
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(),
-                        )
-                      : const Text('Login'),
                 ),
                 const SizedBox(height: 16),
+                // Legal text link
                 TextButton(
-                  onPressed: () => context.push('/register'),
-                  child: const Text('Don\'t have an account? Register'),
+                  onPressed: () {
+                    // Add your terms and privacy policy navigation here
+                  },
+                  child: const Text(
+                    'Saya menyetujui Ketentuan Layanan & Kebijakan Privasi GoPay.',
+                    style: TextStyle(
+                      color: Color(0xFF888888), // Medium gray for the legal text
+                      decoration: TextDecoration.underline,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),

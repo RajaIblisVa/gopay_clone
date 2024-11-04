@@ -9,8 +9,9 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+
   const CustomTextFormField({
-    super.key,
+    Key? key,
     this.hintText,
     this.labelText,
     this.prefixIcon,
@@ -19,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     required this.controller,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +32,15 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
-        prefixIcon: prefixIcon != null
-            ? Icon(
-                prefixIcon,
-                // color: Theme.of(context).colorScheme.primary,
-              )
-            : null,
-        suffixIcon: suffixIcon != null
-            ? Icon(
-                suffixIcon,
-                // color: Theme.of(context).colorScheme.primary,
-              )
-            : null,
-        border: const OutlineInputBorder(),
+        prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+        suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        filled: true,
+        fillColor: Colors.grey[800], // Optional: for dark background theme
       ),
+      style: const TextStyle(color: Colors.white), // For dark theme
     );
   }
 }
