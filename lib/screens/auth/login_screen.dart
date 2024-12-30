@@ -139,6 +139,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+              TextButton(
+                  onPressed: () => context.go('/register'),
+                  child: const Text(
+                    "don't have an account? register now",
+                    style: TextStyle(
+                      color: Color(0xFF888888),
+                      decoration: TextDecoration.underline,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ],
             ),
           ),

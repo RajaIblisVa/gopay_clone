@@ -20,15 +20,10 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserProfile {
-  String get userId => throw _privateConstructorUsedError;
-  String? get phoneNumber => throw _privateConstructorUsedError;
-  DateTime? get dateOfBirth => throw _privateConstructorUsedError;
-  String? get profilePictureUrl => throw _privateConstructorUsedError;
-  String? get bio => throw _privateConstructorUsedError;
-  List<String> get interests => throw _privateConstructorUsedError;
-  String? get location => throw _privateConstructorUsedError;
-  DateTime? get joinDate => throw _privateConstructorUsedError;
-  Map<String, dynamic> get additionalInfo => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get imageId => throw _privateConstructorUsedError;
 
   /// Serializes this UserProfile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,16 +41,7 @@ abstract class $UserProfileCopyWith<$Res> {
           UserProfile value, $Res Function(UserProfile) then) =
       _$UserProfileCopyWithImpl<$Res, UserProfile>;
   @useResult
-  $Res call(
-      {String userId,
-      String? phoneNumber,
-      DateTime? dateOfBirth,
-      String? profilePictureUrl,
-      String? bio,
-      List<String> interests,
-      String? location,
-      DateTime? joinDate,
-      Map<String, dynamic> additionalInfo});
+  $Res call({String id, String name, String email, String imageId});
 }
 
 /// @nodoc
@@ -73,53 +59,28 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = null,
-    Object? phoneNumber = freezed,
-    Object? dateOfBirth = freezed,
-    Object? profilePictureUrl = freezed,
-    Object? bio = freezed,
-    Object? interests = null,
-    Object? location = freezed,
-    Object? joinDate = freezed,
-    Object? additionalInfo = null,
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? imageId = null,
   }) {
     return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateOfBirth: freezed == dateOfBirth
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      profilePictureUrl: freezed == profilePictureUrl
-          ? _value.profilePictureUrl
-          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bio: freezed == bio
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
-              as String?,
-      interests: null == interests
-          ? _value.interests
-          : interests // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      joinDate: freezed == joinDate
-          ? _value.joinDate
-          : joinDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      additionalInfo: null == additionalInfo
-          ? _value.additionalInfo
-          : additionalInfo // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageId: null == imageId
+          ? _value.imageId
+          : imageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -132,16 +93,7 @@ abstract class _$$UserProfileImplCopyWith<$Res>
       __$$UserProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String userId,
-      String? phoneNumber,
-      DateTime? dateOfBirth,
-      String? profilePictureUrl,
-      String? bio,
-      List<String> interests,
-      String? location,
-      DateTime? joinDate,
-      Map<String, dynamic> additionalInfo});
+  $Res call({String id, String name, String email, String imageId});
 }
 
 /// @nodoc
@@ -157,53 +109,28 @@ class __$$UserProfileImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = null,
-    Object? phoneNumber = freezed,
-    Object? dateOfBirth = freezed,
-    Object? profilePictureUrl = freezed,
-    Object? bio = freezed,
-    Object? interests = null,
-    Object? location = freezed,
-    Object? joinDate = freezed,
-    Object? additionalInfo = null,
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? imageId = null,
   }) {
     return _then(_$UserProfileImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateOfBirth: freezed == dateOfBirth
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      profilePictureUrl: freezed == profilePictureUrl
-          ? _value.profilePictureUrl
-          : profilePictureUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      bio: freezed == bio
-          ? _value.bio
-          : bio // ignore: cast_nullable_to_non_nullable
-              as String?,
-      interests: null == interests
-          ? _value._interests
-          : interests // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      location: freezed == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as String?,
-      joinDate: freezed == joinDate
-          ? _value.joinDate
-          : joinDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      additionalInfo: null == additionalInfo
-          ? _value._additionalInfo
-          : additionalInfo // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageId: null == imageId
+          ? _value.imageId
+          : imageId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -212,56 +139,26 @@ class __$$UserProfileImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserProfileImpl implements _UserProfile {
   _$UserProfileImpl(
-      {required this.userId,
-      this.phoneNumber,
-      this.dateOfBirth,
-      this.profilePictureUrl,
-      this.bio,
-      final List<String> interests = const [],
-      this.location,
-      this.joinDate,
-      final Map<String, dynamic> additionalInfo = const {}})
-      : _interests = interests,
-        _additionalInfo = additionalInfo;
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.imageId});
 
   factory _$UserProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserProfileImplFromJson(json);
 
   @override
-  final String userId;
+  final String id;
   @override
-  final String? phoneNumber;
+  final String name;
   @override
-  final DateTime? dateOfBirth;
+  final String email;
   @override
-  final String? profilePictureUrl;
-  @override
-  final String? bio;
-  final List<String> _interests;
-  @override
-  @JsonKey()
-  List<String> get interests {
-    if (_interests is EqualUnmodifiableListView) return _interests;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_interests);
-  }
-
-  @override
-  final String? location;
-  @override
-  final DateTime? joinDate;
-  final Map<String, dynamic> _additionalInfo;
-  @override
-  @JsonKey()
-  Map<String, dynamic> get additionalInfo {
-    if (_additionalInfo is EqualUnmodifiableMapView) return _additionalInfo;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_additionalInfo);
-  }
+  final String imageId;
 
   @override
   String toString() {
-    return 'UserProfile(userId: $userId, phoneNumber: $phoneNumber, dateOfBirth: $dateOfBirth, profilePictureUrl: $profilePictureUrl, bio: $bio, interests: $interests, location: $location, joinDate: $joinDate, additionalInfo: $additionalInfo)';
+    return 'UserProfile(id: $id, name: $name, email: $email, imageId: $imageId)';
   }
 
   @override
@@ -269,37 +166,15 @@ class _$UserProfileImpl implements _UserProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserProfileImpl &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.dateOfBirth, dateOfBirth) ||
-                other.dateOfBirth == dateOfBirth) &&
-            (identical(other.profilePictureUrl, profilePictureUrl) ||
-                other.profilePictureUrl == profilePictureUrl) &&
-            (identical(other.bio, bio) || other.bio == bio) &&
-            const DeepCollectionEquality()
-                .equals(other._interests, _interests) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.joinDate, joinDate) ||
-                other.joinDate == joinDate) &&
-            const DeepCollectionEquality()
-                .equals(other._additionalInfo, _additionalInfo));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.imageId, imageId) || other.imageId == imageId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      userId,
-      phoneNumber,
-      dateOfBirth,
-      profilePictureUrl,
-      bio,
-      const DeepCollectionEquality().hash(_interests),
-      location,
-      joinDate,
-      const DeepCollectionEquality().hash(_additionalInfo));
+  int get hashCode => Object.hash(runtimeType, id, name, email, imageId);
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -319,37 +194,22 @@ class _$UserProfileImpl implements _UserProfile {
 
 abstract class _UserProfile implements UserProfile {
   factory _UserProfile(
-      {required final String userId,
-      final String? phoneNumber,
-      final DateTime? dateOfBirth,
-      final String? profilePictureUrl,
-      final String? bio,
-      final List<String> interests,
-      final String? location,
-      final DateTime? joinDate,
-      final Map<String, dynamic> additionalInfo}) = _$UserProfileImpl;
+      {required final String id,
+      required final String name,
+      required final String email,
+      required final String imageId}) = _$UserProfileImpl;
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
       _$UserProfileImpl.fromJson;
 
   @override
-  String get userId;
+  String get id;
   @override
-  String? get phoneNumber;
+  String get name;
   @override
-  DateTime? get dateOfBirth;
+  String get email;
   @override
-  String? get profilePictureUrl;
-  @override
-  String? get bio;
-  @override
-  List<String> get interests;
-  @override
-  String? get location;
-  @override
-  DateTime? get joinDate;
-  @override
-  Map<String, dynamic> get additionalInfo;
+  String get imageId;
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.

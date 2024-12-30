@@ -6,15 +6,10 @@ part 'user_profile_model.g.dart';
 @freezed
 class UserProfile with _$UserProfile {
   factory UserProfile({
-    required String userId,
-    String? phoneNumber,
-    DateTime? dateOfBirth,
-    String? profilePictureUrl,
-    String? bio,
-    @Default([]) List<String> interests,
-    String? location,
-    DateTime? joinDate,
-    @Default({}) Map<String, dynamic> additionalInfo,
+    required String id,
+    required String name,
+    required String email,
+    required String imageId,
   }) = _UserProfile;
 
   factory UserProfile.fromJson(Map<String, dynamic> json) =>

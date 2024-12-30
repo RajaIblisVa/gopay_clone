@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:appwrite/models.dart' as models;
 import '../../providers/auth_provider.dart';
 import '../profile/profile_screen.dart';
+import 'package:go_router/go_router.dart';
+
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -235,9 +237,8 @@ class DashboardScreen extends ConsumerWidget {
   Widget _buildLogoutButton(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       onPressed: () async {
-        await ref.read(authProvider.notifier).logout();
-        // Arahkan ke halaman login setelah logout
-        Navigator.of(context).pushReplacementNamed('/login');
+        await ref.read(authProvider.notifier).logout(); 
+                     context.go('/login');
       },
       child: const Text('Logout'),
     );

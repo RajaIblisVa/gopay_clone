@@ -12,9 +12,13 @@ class UserProfileService {
     try {
       final document = await _db.createDocument(
         databaseId: dotenv.env['APPWRITE_DATABASE_ID']!,
-        collectionId: dotenv.env['APPWRITE_USER_PROFILE_COLLECTION_ID']!,
-        documentId: profile.userId,
-        data: profile.toJson(),
+        collectionId: dotenv.env['APPWRITE_USER_COLLECTION_ID']!,
+        documentId: profile.id,
+        data: {
+          'name': profile.name,
+          'email': profile.email,
+          'imageId': ''
+        },
       );
       return Result.success(UserProfile.fromJson(document.data));
     } catch (e) {
@@ -26,7 +30,7 @@ class UserProfileService {
     try {
       final document = await _db.getDocument(
         databaseId: dotenv.env['APPWRITE_DATABASE_ID']!,
-        collectionId: dotenv.env['APPWRITE_USER_PROFILE_COLLECTION_ID']!,
+        collectionId: dotenv.env['APPWRITE_USER_COLLECTION_ID']!,
         documentId: userId,
       );
       return Result.success(UserProfile.fromJson(document.data));
@@ -39,8 +43,8 @@ class UserProfileService {
     try {
       final document = await _db.updateDocument(
         databaseId: dotenv.env['APPWRITE_DATABASE_ID']!,
-        collectionId: dotenv.env['APPWRITE_USER_PROFILE_COLLECTION_ID']!,
-        documentId: profile.userId,
+        collectionId: dotenv.env['APPWRITE_USER_COLLECTION_ID']!,
+        documentId: profile.id,
         data: profile.toJson(),
       );
       return Result.success(UserProfile.fromJson(document.data));

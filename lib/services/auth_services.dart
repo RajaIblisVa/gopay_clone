@@ -3,7 +3,7 @@ import 'package:appwrite/models.dart' as models;
 import '../models/result.dart';
 
 abstract class IAuthService {
-  Future<Result<void>> createAccount(
+  Future<Result<models.User>> createAccount(
       {required String email, required String password});
   Future<Result<models.User>> login(
       {required String email, required String password});
@@ -18,12 +18,20 @@ class AuthService implements IAuthService {
   AuthService({required Account account}) : _account = account;
 
   @override
-  Future<Result<void>> createAccount(
-      {required String email, required String password, String? name}) async {
+  Future<Result<models.User>> createAccount({
+    required String email,
+    required String password,
+    String? name,
+  }) async {
     try {
-      await _account.create(
-          userId: 'unique()', email: email, password: password, name: name);
-      return const Result.success(null);
+      final user = await _account.create(
+        userId: 'unique()', 
+        email: email,
+        password: password,
+        name: name,
+      );
+
+      return Result.success(user); 
     } on AppwriteException catch (e) {
       return Result.failed(e.message.toString());
     }
@@ -35,7 +43,6 @@ class AuthService implements IAuthService {
     try {
       await _account.createEmailPasswordSession(
           email: email, password: password);
-      // Assuming we can get user details from the session
       final user = await _account.get();
       return Result.success(user);
     } on AppwriteException catch (e) {
